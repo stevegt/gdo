@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>gdo by stevegt</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>gdo</h1>
+        <h2>Governance of Distributed Organizations</h2>
+        <a href="https://github.com/stevegt/gdo" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <p>Not a whole lot here yet -- throwing this together quickly for
+discussion at the <a href="https://www.whitehouse.gov/nation-of-makers">Aug 2016 Nation of
+Makers</a> session.  As of
+this writing still scraping together code from various directories on
+my hard drive, most of which will land in the <a href="lab">lab directory</a>
+first.    </p>
+
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>A distributed-ledger system suitable for hosting smart contracts and
+running on IoT devices.  A few example applications:</p>
+
+<ul>
+<li>Organizational governance</li>
+<li>Workflow</li>
+<li>Training and certification</li>
+<li>Accounting</li>
+<li>Inventory control</li>
+<li>Door access control</li>
+<li>Machine lockout</li>
+<li>Membership</li>
+<li>Reservations</li>
+<li>Data storage and backups</li>
+<li>Operating system and disk image management</li>
+<li>IoT </li>
+</ul>
+
+<p>We accomplish all this using a (relatively) simple model:  Distributed
+applications (dapps) running in Linux containers managed by a
+distributed ledger, hosted in a distributed version control system
+that performs content-defined chunking to store and ship around large
+blobs, including the container images themselves.</p>
+
+<p>The development roadmap, then, is (relatively) straightforward:
+Implement things in reverse order of the above paragraph.  Beg,
+borrow, and paste where possible, take advantage of existing code and
+libraries such as libcontainer, ledger-cli, and libgit2, and become
+self-hosting early.</p>
+
+<p>Compared to e.g. Ethereum or HyperLedger, we'd like to target more of
+a git-like version control model, allowing forking and interbranch
+consensus, rather than a single linear blockchain.  For
+turing-complete smart contracts, we simply use Linux containers --
+this allows dapps to be written in any language executable on Linux.</p>
+
+<p>We'll use test-driven consensus (proof of merge), where new blocks are
+tested by one or more dapps, rather than use a hardcoded proof-of-work
+algorithm.  Not requiring a compute-intensive proof of work means
+single-board computers such as BeagleBone or Raspberry Pi can host
+full nodes.</p>
+
+<h2>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
+
+<p>Maker space door access control, for instance, could be based on an
+existing open source project such as
+<a href="https://github.com/makeitlabs/doorbot">https://github.com/makeitlabs/doorbot</a>, living in a container, with
+modifications to have it communicate with membership, accounting, and
+certification dapps, each in their own containers.  Comms are via the
+blockchain, and all of this runs on localhost, as opposed to talking
+to a central SQL db on a server somewhere else.  Each door can have
+its own Raspberry Pi-sized host.  These will check and log access
+events as usual even during network outages, and the blockchain's
+distributed consensus protocol will resync records when the network
+comes back up.</p>
+
+<h2>
+<a id="references" class="anchor" href="#references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>References</h2>
+
+<p>Shares a few concepts with HyperLedger, Ethereum, Docker, Ledger-cli,
+git, and git-annex.  Builds on earlier work and prototyping at
+github.com/stevegt/librabinpoly and github.com/stevegt/git-devops.</p>
+
+<h2>
+<a id="open-questions" class="anchor" href="#open-questions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Open Questions</h2>
+
+<ul>
+<li>If forks are allowed (depending on dapp) and there can be multiple
+roots as well as multiple heads, then is this a "blockmesh" instead
+of a blockchain?</li>
+</ul>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/stevegt/gdo/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/stevegt/gdo/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/stevegt/gdo"></a> is maintained by <a href="https://github.com/stevegt">stevegt</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
