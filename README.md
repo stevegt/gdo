@@ -2,12 +2,15 @@
 
 Not a whole lot here yet -- throwing this together quickly for
 discussion at the [Aug 2016 Nation of
-Makers](https://www.whitehouse.gov/nation-of-makers) session.  
+Makers](https://www.whitehouse.gov/nation-of-makers) session.  As of
+this writing still scraping together/refactoring code from
+miscellaneous directories on my hard drive, most of which will land in
+the [lab directory](lab) first.
 
 ## Overview
 
 A distributed-ledger system suitable for hosting smart contracts and
-controlling IoT devices.  A few example applications:
+running on IoT devices.  A few example applications:
 
 - Organizational governance
 - Workflow
