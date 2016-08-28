@@ -1,6 +1,4 @@
 
-XXX merge with db_sqlite, create a vanilla DB superclass for future
-storage methods
 
 class Db(object):
     

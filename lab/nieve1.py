@@ -1,5 +1,14 @@
 #!/usr/bin/python
 
+'''
+a simple rolling hash test, predecessor to CDC1
+
+generate a list of hashes on stdout, one per byte:
+
+	dd if=/dev/urandom bs=1k count=320 | ./nieve1.py
+
+'''
+
 import random
 import sys
 

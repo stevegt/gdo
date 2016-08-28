@@ -2,6 +2,9 @@
 
 '''
 convert input byte stream to 16-bit ascii integers, one per line
+
+dd if=/dev/urandom bs=1k count=320 | ./raw2int.py | ./randtest.py
+
 '''
 
 import struct

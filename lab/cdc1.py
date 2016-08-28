@@ -5,8 +5,15 @@ import numpy
 import sys
 
 '''
+Content Defined Chunking library
+reference implementation of CDC1 algorithm in pure python
+
 This code is purposely not very pythonic; the intent is to make it
 easier to translate to C or other languages.
+
+This will produce a list of block sizes on stdout:
+
+	dd if=/dev/urandom bs=9k count=320 | ./cdc1.py 
 
 '''
 

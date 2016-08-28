@@ -1,5 +1,10 @@
 #!/usr/bin/python
 
+'''
+compare different RNG outputs given the same seed
+'''
+
+
 import random
 import numpy
 import sys

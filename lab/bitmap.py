@@ -1,5 +1,10 @@
 #!/usr/bin/python
 
+'''
+generate a random bitmap
+
+'''
+
 import cv2
 import numpy as np
 import os
@@ -17,10 +22,10 @@ def show(image):
 	os.system('xzgv -z /tmp/bitmap.png')
 
 
-raw = [ random.randrange(2**10, 2**16) for i in range(image_size * image_size) ]
+raw = [ random.randrange(2**3, 2**8) for i in range(image_size * image_size) ]
 img = np.array(raw)
 print img
-img = img.reshape(image_size, image_size)
+img = img.reshape(image_size, image_size, 1)
 
 show(img)
 

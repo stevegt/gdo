@@ -1,5 +1,18 @@
 #!/usr/bin/python
 
+'''
+given a stream of ascii integers on stdin, test for entropy and
+generate a bitmap for visual pattern recognition
+
+# test rolling hashes
+dd if=/dev/urandom bs=1k count=320 | ./nieve1.py | ./randtest.py
+# test chunk sizes
+dd if=/dev/urandom bs=9k count=320000 | ./cdc1.py | ./randtest.py
+
+
+'''
+
+
 import Image
 import numpy as np
 import os
