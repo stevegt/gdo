@@ -5,6 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
+*.o
 
 # Distribution / packaging
 .Python
@@ -87,3 +88,10 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# vim 
+*.swp
+
+# John Walker's entropy testing package 
+lab/random/ent
+
