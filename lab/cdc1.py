@@ -63,28 +63,25 @@ def cdc1_rotr(self, x):
 def cdc1_get_chunk(self):
 	h = self.seed
 	self.chunk = ''
-	found = False
 	while True:
 		buf = self.src()
 		if len(buf) == 0:
 			break
-		for byte in buf:
-			self.chunk += byte
-			csize = len(self.chunk) 
-			if csize < self.min_chunk_size - 256:
-				continue
-			if csize == self.max_chunk_size:
-				found = True
-				break
-			# rolling hash based on buzhash
-			# http://www.dcs.gla.ac.uk/~hamer/cakes-talk.pdf
-			h = cdc1_rotr(self, h) ^ self.T[ord(byte)];
-			if csize < self.min_chunk_size:
-				continue
-			if (h & self.mask) == 0:
-				found = True
-				break
-		if found:
+		# XXX reference implementation, only processes one byte at a time
+		assert len(buf) == 1
+		byte = buf[0]
+		self.chunk += byte
+		csize = len(self.chunk) 
+		if csize < self.min_chunk_size - 256:
+			continue
+		if csize == self.max_chunk_size:
+			break
+		# rolling hash based on buzhash
+		# http://www.dcs.gla.ac.uk/~hamer/cakes-talk.pdf
+		h = cdc1_rotr(self, h) ^ self.T[ord(byte)];
+		if csize < self.min_chunk_size:
+			continue
+		if (h & self.mask) == 0:
 			break
 	return len(self.chunk)
 
