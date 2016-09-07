@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import collections
 import hashlib
 import numpy
 import sys
@@ -26,10 +27,10 @@ class CDC(object):
 
 	def __init__(self, srcfh, seed, word_size):
 		''' 
-		srcfh must be a callable with no args, and must return 1 
-		byte, or the empty string on EOF, e.g.:
+		srcfh must be an iterable, and must return 1 or more bytes on
+		each iteration, or the empty string on EOF, e.g.:
 
-		CDC(lambda: sys.stdin.read(1), ...)
+		CDC(lambda: sys.stdin.read(4096), ...)
 
 		'''
 		self.seed = seed
@@ -39,6 +40,7 @@ class CDC(object):
 		self.min_chunk_size = 2**(word_size-5)
 		self.mask = self.avg_chunk_size - 1
 		self.src = srcfh
+		self.deque = collections.deque()
 		self.chunk = ''
 		assert seed != 0
 		assert seed <= self.max_chunk_size
@@ -57,10 +59,10 @@ class CDC(object):
 		self.chunk = ''
 		found = False
 		while True:
-			buf = self.src()
-			if len(buf) == 0:
+			self.deque.extend(self.src())
+			if len(self.deque) == 0:
 				break
-			for byte in buf:
+			for byte in self.deque.popleft():
 				assert len(byte) == 1
 				self.chunk += byte
 				csize = len(self.chunk) 
@@ -82,7 +84,7 @@ class CDC(object):
 		return len(self.chunk)
 
 def print_chunk_sizes():
-	cdc = CDC(lambda: sys.stdin.read(1), 1027, 16)
+	cdc = CDC(lambda: sys.stdin.read(4096), 1027, 16)
 	while True:
 		size = cdc.get_chunk()
 		if size == 0:
@@ -90,7 +92,7 @@ def print_chunk_sizes():
 		print size
 
 def print_chunk_specs():
-	cdc = CDC(lambda: sys.stdin.read(1), 1027, 16)
+	cdc = CDC(lambda: sys.stdin.read(4096), 1027, 16)
 	while True:
 		size = cdc.get_chunk()
 		if size == 0:
