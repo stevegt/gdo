@@ -7,12 +7,14 @@ small subset may graduate from here to elsewhere in the repository.
 
 ## To Do
 
-- remove single-byte restriction on cdc1p src (use ring buffer or
-  https://docs.python.org/3/library/collections.html#collections.deque)
-- cdh1
+- replace deque with something faster and retry
+  ./hashing_speed_test.py
+- turn the stream hash in cdh1 into a root hash of the hash list;
+  https://en.wikipedia.org/wiki/Hash_list
 - merge rough_draft_pseudocode.py with db_sqlite
 -  create a vanilla DB superclass for future storage methods
 - finish put.py
 - finish get.py
 - finish db_sqlite.py
 - cdch as higher-performance version of cdc1+cdh1 
+- reimplement cdc1p in C

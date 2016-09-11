@@ -25,9 +25,9 @@ This will produce a list of block sizes on stdout:
 
 class CDC(object):
 
-	def __init__(self, srcfh, seed, word_size):
+	def __init__(self, src, seed, word_size):
 		''' 
-		srcfh must be an iterable, and must return 1 or more bytes on
+		src must be an iterable, and must return 1 or more bytes on
 		each iteration, or the empty string on EOF, e.g.:
 
 		CDC(lambda: sys.stdin.read(4096), ...)
@@ -39,7 +39,7 @@ class CDC(object):
 		self.avg_chunk_size = 2**(word_size-3)
 		self.min_chunk_size = 2**(word_size-5)
 		self.mask = self.avg_chunk_size - 1
-		self.src = srcfh
+		self.src = src
 		self.deque = collections.deque()
 		self.chunk = ''
 		assert seed != 0
