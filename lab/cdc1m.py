@@ -80,11 +80,6 @@ class CDC(object):
 			self.chunk_size = 0
 			# iterate until delimiter found or end of frame; 
 			# end of frame == max_chunk_size
-			# print 'mmap_offset', mmap_offset 
-			# print 'mmap_size', mmap_size
-			# print 'frame_offset', frame_offset 
-			# print 'self.chunk_start', self.chunk_start
-			# print 'start bytes', frame[frame_offset:frame_offset+10]
 			for byte in frame[frame_offset:]:
 				self.chunk_size += 1
 				if self.chunk_size < self.min_chunk_size - 256:
@@ -99,26 +94,21 @@ class CDC(object):
 					break
 			# we only get here if we found a delimiter, hit
 			# max_chunk_size, or hit eof
-			# end_offset = frame_offset+self.chunk_size
-			# print 'end bytes', frame[end_offset-10:end_offset]
-			# print 'next bytes', frame[end_offset:end_offset+10]
-			yield self.chunk_size
+			h = hashlib.sha256(
+					frame[frame_offset:frame_offset+self.chunk_size])
+			yield self.chunk_size, h.hexdigest()
 			self.chunk_start += self.chunk_size
 
 def print_chunk_sizes():
 	cdc = CDC(open(sys.argv[1], 'r'), 1027, 16)
-	for size in cdc.chunks():
+	for size,hexdigest in cdc.chunks():
 		print size
 
 def print_chunk_specs():
-	cdc = CDC(lambda: sys.stdin.read(4096), 1027, 16)
-	while True:
-		size = cdc.get_chunk()
-		if size == 0:
-			break
-		h = hashlib.sha256(cdc.chunk)
-		print "%6d %s" % (size, h.hexdigest())
+	cdc = CDC(open(sys.argv[1], 'r'), 1027, 16)
+	for size,hexdigest in cdc.chunks():
+		print "%6d %s" % (size, hexdigest)
 
 if __name__ == '__main__':
-	print_chunk_sizes()
-	# print_chunk_specs()
+	# print_chunk_sizes()
+	print_chunk_specs()

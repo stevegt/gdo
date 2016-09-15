@@ -101,5 +101,5 @@ def print_chunk_specs():
 		print "%6d %s" % (size, h.hexdigest())
 
 if __name__ == '__main__':
-	print_chunk_sizes()
-	# print_chunk_specs()
+	# print_chunk_sizes()
+	print_chunk_specs()
