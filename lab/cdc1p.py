@@ -35,7 +35,11 @@ class CDC(object):
 		'''
 		self.seed = seed
 		self.word_size = word_size
-		self.max_chunk_size = 2**word_size - 1
+		# If word size is 16, then max chunk size is 64512; this allows a
+		# chunk to fit into a UDP datagram. UDP over IP has 65507 usable
+		# payload bytes available.  65507 - 64512 leaves us 995 bytes for
+		# our own protocol header(s).
+		self.max_chunk_size = 2**word_size - 1024
 		self.avg_chunk_size = 2**(word_size-3)
 		self.min_chunk_size = 2**(word_size-5)
 		self.mask = self.avg_chunk_size - 1
