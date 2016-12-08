@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import db_sqlite
-from cdc1 import *
+from cdc1m import *
 
 class CNode(object):
 

@@ -7,6 +7,34 @@ small subset may graduate from here to elsewhere in the repository.
 
 ## To Do
 
+- finish put.py
+    - without chunk fault
+    - with chunk fault
+- finish get.py
+- finish db_sqlite.py
+- wire protocol is
+    - chain completion protocol
+    - universal chain protocol
+    - universal chain completion protocol
+    - microchain protocol
+    - pattern completion protocol
+    - sequence completion protocol
+    - ordered list completion protocol
+- spike now: access controls
+- chunk fault
+    - local disk is a cache
+    - cache miss causes chunk retrieval from a peer
+- retrieval might be purchase from a trusted peer
+    - trust builds over time
+    - we rate peers based on latency
+    - purchase might be in personal currency, either peer's (if we
+      have any) or our own
+- think through ultimate use of force
+    - local admins can delete chunks
+    - local admins can kill processes
+    - local admins can filter packets
+    - they need to be compensated for resource usage
+    - all else is built on those foundations
 - write a daemon 
     - http to serve javascript GUI
     - websocket
@@ -25,9 +53,6 @@ small subset may graduate from here to elsewhere in the repository.
       https://en.wikipedia.org/wiki/Hash_list
       https://en.wikipedia.org/wiki/Merkle_tree
 - create a vanilla DB superclass for future storage methods
-- finish put.py
-- finish get.py
-- finish db_sqlite.py
 - cdch as higher-performance version of cdc1+cdh1 
 - reimplement cdc1p in C
 - ECDSA signing
