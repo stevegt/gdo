@@ -15,7 +15,7 @@ running on IoT devices.  A few example applications:
 - Organizational governance
 - Workflow
 - Source and document version control
-- Training and certification
+- Education, training, and certification
 - Accounting
 - Inventory control
 - Door access control
