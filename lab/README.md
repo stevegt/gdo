@@ -15,7 +15,9 @@ small subset may graduate from here to elsewhere in the repository.
         - lower performance because would need to re-hash entire file
         - inotify
             - inotifywait -mr --format "%w%f %e" /tmp
-            - detect dirty files
+            - XXX misses mmap write(), flush(), and close()  
+                - verified in testing, agrees with above diagram and with
+                  http://man7.org/linux/man-pages/man7/inotify.7.html
     - block layer
         - higher performance because only need to re-hash changed block
              - but would need large dm block sizes
