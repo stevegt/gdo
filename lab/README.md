@@ -7,6 +7,18 @@ small subset may graduate from here to elsewhere in the repository.
 
 ## To Do
 
+- spike now: access controls
+- how to detect changes?
+    - so we can hash and distribute
+    - file layer
+        - inotify
+            inotifywait -mr --format "%w%f %e" /tmp
+            - detect dirty files
+    - block layer
+        - see https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/
+            - replaced aufs
+        - dm-log-userspace 
+            - detect dirty blocks
 - finish put.py
     - without chunk fault
     - with chunk fault
@@ -20,7 +32,6 @@ small subset may graduate from here to elsewhere in the repository.
     - pattern completion protocol
     - sequence completion protocol
     - ordered list completion protocol
-- spike now: access controls
 - chunk fault
     - local disk is a cache
     - cache miss causes chunk retrieval from a peer

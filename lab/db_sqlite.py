@@ -28,6 +28,31 @@ class Db(object):
 				"insert into cnodes ('hash', 'seq', 'chunk') values (?, ?, ?)", 
 				self.gen_chunks())
 
+    def put(self, fh):
+        '''put a file (or finite-length stream) into the db'''
+        # start hashing entire stream
+		sh = hashlib.sha256()
+        chunk_hashes = []
+        for chunk in 
+			chunk_hash = self.put_chunk(chunk)
+			chunk_hashes.append(chunk_hash)
+        finish hashing stream
+             self.put_file(file_hash, chunk_hashes)
+
+    def put_chunk(self, chunk):
+        while true
+            generate hash using next method
+            if hash in db:
+            verify bytes
+            if mismatch:
+                continue
+                        else:
+            insert chunk into db
+                return hash
+
+    def get_chunk(hash):
+        
+        yield chunk
 
 	def gen_chunks(self):
 		cdc = CDC1(1027, 16)
