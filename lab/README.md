@@ -10,15 +10,23 @@ small subset may graduate from here to elsewhere in the repository.
 - spike now: access controls
 - how to detect changes?
     - so we can hash and distribute
+    - https://upload.wikimedia.org/wikipedia/commons/3/30/IO_stack_of_the_Linux_kernel.svg
     - file layer
+        - lower performance because would need to re-hash entire file
         - inotify
             inotifywait -mr --format "%w%f %e" /tmp
             - detect dirty files
     - block layer
+        - higher performance because only need to re-hash changed block
+             - but would need large dm block sizes
+             - and would get false chunk endings when inserting and
+               deleting bytes
+        - enables simple encryption if dm-crypt on top
         - see https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/
             - replaced aufs
+            - perhaps we can base our own code on that
         - dm-log-userspace 
-            - detect dirty blocks
+            - allows us to run in userspace
 - finish put.py
     - without chunk fault
     - with chunk fault
