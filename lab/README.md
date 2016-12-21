@@ -14,7 +14,7 @@ small subset may graduate from here to elsewhere in the repository.
     - file layer
         - lower performance because would need to re-hash entire file
         - inotify
-            inotifywait -mr --format "%w%f %e" /tmp
+            - inotifywait -mr --format "%w%f %e" /tmp
             - detect dirty files
     - block layer
         - higher performance because only need to re-hash changed block
