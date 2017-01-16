@@ -12,14 +12,20 @@ small subset may graduate from here to elsewhere in the repository.
     - so we can hash and distribute
     - https://upload.wikimedia.org/wikipedia/commons/3/30/IO_stack_of_the_Linux_kernel.svg
     - file layer
-        - lower performance because would need to re-hash entire file
+        - would need to re-hash entire file
+        - best to just use git model: rehash if timestamp, size or
+          attrs change
+            - maybe even spot-check content
+                - allow user to specify areas of interest
         - inotify
             - inotifywait -mr --format "%w%f %e" /tmp
             - XXX misses mmap write(), flush(), and close()  
                 - verified in testing, agrees with above diagram and with
                   http://man7.org/linux/man-pages/man7/inotify.7.html
     - block layer
-        - higher performance because only need to re-hash changed block
+        - probably a bad idea -- a single byte insert will skew all
+          following blocks
+        - only need to re-hash changed block
              - but would need large dm block sizes
              - and would get false chunk endings when inserting and
                deleting bytes
