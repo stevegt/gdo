@@ -54,7 +54,7 @@
             <a href=https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force>IETF</a>, an unincorporated all-volunteer
             organization with <a href=https://www.ietf.org/newcomers.html>no membership list</a>.
             The IETF uses the <a href=https://en.wikipedia.org/wiki/Request_for_Comments>RFC</a> process for
-            decision-making, and for those things that absolutely have to be centralized, such as renting conference venues, 
+            decision-making.  For those things that absolutely must be centralized, such as renting conference venues, 
             IETF members formed the non-profit <a href=https://en.wikipedia.org/wiki/Internet_Society>ISOC</a>
             to act as their legal and financial representative.
           <p>
@@ -62,21 +62,22 @@
             ("smaller" being defined as anything smaller than the Internet). A useful question is:  <b>If we were to start an IETF-like organization today, using current technologies,
             what would it look like?</b>  The answer to this question has been a moving target as long as I've been asking
             it, mostly because of the rapid evolution of technology itself.  But I think two related events form cusps in 
-            the target's trajectory:  The demilitarization of cryptography by <a href=https://www.gpo.gov/fdsys/pkg/FR-1996-11-19/pdf/96-29692.pdf>
-            Executive Order 13026</a>, which enabled strong cryptography and practical use of the 
-            <a href=https://en.wikipedia.org/wiki/Blockchain>blockchain</a>
+            the target's trajectory:  First, strong cryptography was demilitarized by <a href=https://www.gpo.gov/fdsys/pkg/FR-1996-11-19/pdf/96-29692.pdf>
+            Executive Order 13026</a>.  The resulting free flow of cryptographic codes then enabled practical usability
+            of the <a href=https://en.wikipedia.org/wiki/Blockchain>blockchain</a>
             distributed data structure.
           <p>
-            In spite of the hype surrounding cryptocurrencies, I think it's safe
-            to say that, if an IETF-like organization was established today, it would use a blockchain to edit, approve, and act
-            as storage of record for RFC-like documents.  Many of the internet protocols IETF created would be different as 
-            well -- DNS, the entire domain name system, and SSL certificates are all examples of things
-            which were designed as centralized systems because we did not yet have cryptographically strong blockchains to build
-            upon.
+            Aside from the hype currently surrounding cryptocurrencies, I think it's safe
+            to say that, if an IETF-like organization were established today, it would likely use a blockchain to host,
+            form consensus around, approve, and act
+            as storage of record for RFC-like documents.  Many of the internet protocols IETF created would be different
+            as well -- DNS, the entire domain name system, and SSL certificates are all examples of things
+            which were designed as centralized systems because we did not yet have cryptographically strong 
+            distributed systems to build upon.
           <p>
             Our hypothetical blockchain-based IETF would probably also do much of its computing using
             <a href=https://en.wikipedia.org/wiki/Ethereum#Ethereum_Virtual_Machine>distributed virtual machines</a>.  I believe 
-            much of this code would be implemented as "serverless" <a href=https://aws.amazon.com/lambda/>lambda</a> functions 
+            many algorithms could be implemented as "serverless" <a href=https://aws.amazon.com/lambda/>lambda</a> functions 
             hosted on a blockchain.
           <p>
             Last but not least, the IETF is already a rudimentary 
@@ -85,12 +86,12 @@
             by the community.  If re-implemented today, much of this workflow would likely be implemented as 
             <a href=https://en.wikipedia.org/wiki/Smart_contract>smart contracts</a>.
           <p>
-            The chicken-scratchings in this git repository, then, are my own feeble attempts to answer these "what if"
-            questions,
-            for my own businesses as well as the other organizations I am involved with and may be able to foist this stuff upon.
+            The chicken-scratchings in this git repository are my own feeble attempts to answer these "what if"
+            questions
+            for my own businesses, as well as the other organizations I am involved with and may be able to foist this stuff upon.
             The original contents of this git repository came from me scraping
             together code from various directories on my hard drive, putting most of
-            it in the <a href="https://github.com/stevegt/gdo/tree/master/lab">lab directory</a>. 
+            it in the <a href="https://github.com/stevegt/gdo/tree/master/lab">lab directory</a> for now. 
             If you are interested in either helping to develop 
             or in being a guinea pig for this project, then interact with
             the github project in some way, or ping me @stevegt on twitter.  If
