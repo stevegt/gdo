@@ -68,24 +68,31 @@
             what would it look like?</b>  The answer to this question has been a moving target as long as I've been asking
             it, mostly because of the rapid evolution of technology itself.  But I think two related events form cusps in 
             the target's trajectory:  First, strong cryptography was demilitarized by <a href=https://www.gpo.gov/fdsys/pkg/FR-1996-11-19/pdf/96-29692.pdf>
-            Executive Order 13026</a>.  The resulting innovations in cryptography then enabled practical usability
-            of the <a href=https://en.wikipedia.org/wiki/Blockchain>blockchain</a>
-            distributed data structure.
+            Executive Order 13026</a>.  Next, the resulting
+          innovations in cryptography then enabled practical 
+          distributed systems, ranging from secure use of the web to
+          decentralized financial systems.  For all of the attention
+          the latter has been getting in recent years, I believe we
+          are still seeing a technology in its infancy.
           <p/>
-            Aside from the hype currently surrounding cryptocurrencies, I think it's safe
-            to say that, if an IETF-like organization were established today, it's entirely possible it would use a blockchain 
-            or distributed ledger to host,
-            form consensus around, approve, and act
-            as storage of record for RFC-like documents as well as code.  Many of the protocols and procedures
-            which make up the Internet would be completely different as well -- easy examples are the registration
+            Despite the hype currently surrounding cryptocurrencies, I think it's safe
+            to say that, if an IETF-like organization were established today, it's entirely possible it would use a 
+            distributed ledger with crytographic hash chaining to preserve and
+            provide storage of record for both docs and code, as well
+            as for hosting the workflow of
+            consensus formation and decision-making.
+            Many of the protocols and procedures
+            which make up the Internet would be completely different
+            if created today -- easy examples are the registration
             systems for
             <a href=https://tools.ietf.org/html/rfc1466>IP addresses</a>, 
             <a href=https://tools.ietf.org/html/rfc1032>domain names</a>, and
             <a href=https://tools.ietf.org/html/rfc1422>SSL certificates</a>.  Making these more decentralized has
-            always been a struggle, because we have not historically had cryptographically strong distributed systems
-            to build upon.
+            always been a struggle, because we did not historically
+            have a legal foundation allowing the cryptography needed
+            to build secure distributed systems.
           <p/>
-            Our hypothetical blockchain-based IETF would probably do much of its own computing using
+            Our hypothetical blockchain-based IETF might do much of its own computing using
             <a href=https://en.wikipedia.org/wiki/Ethereum#Ethereum_Virtual_Machine>distributed virtual machines</a>, with
             libraries of algorithms implemented as "serverless" <a href=https://aws.amazon.com/lambda/>lambda</a> functions 
             hosted on a blockchain.  It's likely that the reference implementations of common protocols would be executed
