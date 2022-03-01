@@ -38,18 +38,22 @@
             out of the executive branch and into <a href=https://nationofmakers.us/>an independent non-profit</a>
             three months later. For now I seem to have become the unofficial and defacto "RFC
             editor" for this new organization -- more on that in a moment.
-          <hr>
+          <hr/>
             I've always thought that, for better or for worse, systems and organizations shape each other. A federated
             system supports a community and tends to be described in terms of format, algorithm, and protocol. Anyone
             can participate in development, and resources are mutually shared; no single person can veto an experiment
-            in innovation or growth.  This is a powerful idea.  Contrast this with a centralized system, which today tends
+            in innovation or growth.  
+          <p/>
+            This is a powerful idea.  
+           <p/>
+              Contrast this with a centralized system, which today tends
             to be described in terms of a URL, a server, and the single organization that owns it. In a centralized system,
             the owning organization must ultimately make the decisions and pay all the bills. Sole ownership creates an
             unavoidable time and funding bottleneck, stifling independent innovation and growth.
             We see these limitations play out over and over again in large enterprises, and most
             startups, whether for-profit or not, fail due to these natural limits on execution. Conversely, those startups
             that do succeed tend to be those that rely in some way on network effects.
-          <p>
+          <p/>
             The Internet's early developers stumbled into a system and organizational design where anyone can contribute,
             where decisions are made by rough consensus, and where both innovation and expenses are distributed.  The
             <a href=https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force>Internet Engineering Task Force</a> is
@@ -59,7 +63,7 @@
             decision-making.  For those things that absolutely must be centralized, such as renting conference venues, 
             IETF members formed the non-profit <a href=https://en.wikipedia.org/wiki/Internet_Society>ISOC</a>
             to act as their legal and financial representative.
-          <p>
+          <p/>
             I've spent a few decades trying to figure out how to apply these lessons learned to small projects and companies 
             ("small" being defined as anything smaller than the Internet). A useful question is:  <b>If we were to start an IETF-like organization today, using current technologies,
             what would it look like?</b>  The answer to this question has been a moving target as long as I've been asking
@@ -68,7 +72,7 @@
             Executive Order 13026</a>.  The resulting innovations in cryptography then enabled practical usability
             of the <a href=https://en.wikipedia.org/wiki/Blockchain>blockchain</a>
             distributed data structure.
-          <p>
+          <p/>
             Aside from the hype currently surrounding cryptocurrencies, I think it's safe
             to say that, if an IETF-like organization were established today, it's entirely possible it would use a blockchain 
             or distributed ledger to host,
@@ -81,13 +85,13 @@
             <a href=https://tools.ietf.org/html/rfc1422>SSL certificates</a>.  Making these more decentralized has
             always been a struggle, because we have not historically had cryptographically strong distributed systems
             to build upon.
-          <p>
+          <p/>
             Our hypothetical blockchain-based IETF would probably do much of its own computing using
             <a href=https://en.wikipedia.org/wiki/Ethereum#Ethereum_Virtual_Machine>distributed virtual machines</a>, with
             libraries of algorithms implemented as "serverless" <a href=https://aws.amazon.com/lambda/>lambda</a> functions 
             hosted on a blockchain.  It's likely that the reference implementations of common protocols would be executed
             directly this way.
-          <p>
+          <p/>
             Last but not least, the IETF is already a rudimentary 
             <a href=https://en.wikipedia.org/wiki/Decentralized_autonomous_organization>decentralized autonomous organization</a>,
             held together by the RFCs as well as <a href=https://www.ietf.org/tao.html>customs and courtesies</a> that are
@@ -96,7 +100,7 @@
             <a href=https://en.wikipedia.org/wiki/Smart_contract>smart contracts</a>.  As of today we may not know how to 
             overcome the security concerns that exist in complex persistent contracts; a lot of people are working 
             on this though.  I have some ideas myself, and plan to describe some of them here.
-          <p>
+          <p/>
             The chicken-scratchings in this git repository are my own feeble attempts to answer these "what if"
             questions
             for my own businesses, as well as for the other organizations I am involved with and may be able to
@@ -109,7 +113,6 @@
             the github project in some way, or ping me @stevegt on twitter.  If
             you are one of the NoM folks, you should also be able to reach me
             via slack.
-</p>
 
 <h2>
 <a id="roadmap" class="anchor" href="#roadmap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Roadmap</h2>
@@ -163,11 +166,10 @@ full nodes.</p>
 existing open source project such as
 <a href="https://github.com/makeitlabs/doorbot">https://github.com/makeitlabs/doorbot</a>, living in a container, with
 modifications to have it communicate with membership, accounting, and
-certification dapps, each in their own containers.  Comms are via the
-blockchain, and all of this runs on localhost, as opposed to talking
+certification dapps, each in their own containers.  All of this runs on localhost, as opposed to talking
 to a central SQL db on a server somewhere else.  Each door can have
 its own Raspberry Pi-sized host.  These will check and log access
-events as usual even during network outages, and the blockchain's
+events as usual even during network outages, and the
 distributed consensus protocol will merge records when the network
 comes back up.</p>
 
@@ -178,14 +180,6 @@ comes back up.</p>
 git, and git-annex.  Builds on earlier work and prototyping at
 github.com/stevegt/librabinpoly and github.com/stevegt/git-devops.</p>
 
-<h2>
-<a id="open-questions" class="anchor" href="#open-questions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Open Questions</h2>
-
-<ul>
-<li>If forks are allowed (depending on dapp) and there can be multiple
-roots as well as multiple heads, then is this a "blockmesh" instead
-of a blockchain?</li>
-</ul>
         </section>
 
         <aside id="sidebar">
